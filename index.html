@@ -103,5 +103,68 @@
 				</ul>
 			</li>
 		</ol>
+
+		<div class="container">
+			<h2>Kalkulator Tetes Infus (TPM)</h2>
+			<!-- KOLOM KIRI: FORM INPUT -->
+			<div class="calculator-form">
+				<div class="form-group">
+					<label for="volume">Volume Cairan (mL):</label>
+					<input
+						type="number"
+						id="volume"
+						placeholder="Contoh: 500"
+						value="500" />
+				</div>
+				<div class="form-group">
+					<label for="waktu">Lama Pemberian (Jam):</label>
+					<input
+						type="number"
+						id="waktu"
+						placeholder="Contoh: 8"
+						value="8" />
+				</div>
+				<div class="form-group">
+					<label for="faktor">Jenis / Faktor Tetes:</label>
+					<select id="faktor">
+						<option value="20">Makro (Dewasa) - 20 tetes/mL</option>
+						<option value="15">Makro (Dewasa) - 15 tetes/mL</option>
+						<option value="60">Mikro (Anak/Pediatrik) - 60 tetes/mL</option>
+					</select>
+				</div>
+				<button onclick="hitungTPM()">Hitung & Simulasi</button>
+				<!-- HASIL PERHITUNGAN -->
+				<div class="result-box">
+					<h4>Kecepatan Tetesan:</h4>
+					<div
+						class="result-value"
+						id="res-tpm"
+						>0 TPM</div
+					>
+					<small id="res-detik">Silakan tekan tombol hitung.</small>
+				</div>
+			</div>
+			<!-- KOLOM KANAN: ANIMASI VISUALISASI -->
+			<div class="visualizer">
+				<div class="drip-chamber">
+					<div class="nozzle"></div>
+
+					<!-- Icon Air Tetesan (SVG) -->
+					<svg
+						id="drop"
+						class="water-drop"
+						viewBox="0 0 24 24">
+						<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+					</svg>
+					<div class="liquid-pool"></div>
+				</div>
+				<div
+					class="visual-status"
+					id="visual-status"
+					>Visualisasi tetesan siap</div
+				>
+			</div>
+		</div>
+		<script src="./js/iv.js"></script>
 	</body>
 </html>
