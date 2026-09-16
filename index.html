@@ -5,64 +5,208 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<title>alia's playground </title>
+		<title>blogpage </title>
 	</head>
 	<body>
-    <img width="200 px"
-    src="https://ella.janitorai.com/media-approved/oqu-QovGcypRk1xL8vz-e.webp"
-    alt="this is an image" />
-    <h1>this is a heading 1</h1>
-    <h2>this is a heading 2</h2>
-		<h3>this is a heading 3</h3>
-		<h4>this is a heading 4</h4>
-		<h5>this is a heading 5</h5>
-		<h6>this is a heading 6</h6>
-    <span>this is a span</span>
-		<u>this is underlined</u>
-    <a href="https://www.google.com">this is a link</a>
-    <ul>
-      <li>this is an unordered list item</li>
-      <li>this is another unordered list item</li>
-    </ul> 
-    <ol>
-      <li>this is an ordered list item</li>
-      <li>this is another ordered list item</li>
-    </ol>
-    <dl>
-      <dt>this is a definition term</dt>
-      <dd>this is a definition description</dd>
-    </dl>
-    <p>up <hr /> down </p>
-		<p>this is a paragraph</p>
-		<b>this is bold</b>
-		<i>this is italic</i>
-		<strong>this is strong</strong>
-		<em>this is emphasized</em>
-		<mark>this is marked</mark>
-		<small>this is small</small>
-		<del>this is deleted</del>
-		<ins>this is inserted</ins>
-		<sub>this is subscript</sub>
-		<sup>this is superscript</sup>
-		<q>this is a quote</q>
-    blockquote>this is a blockquote</blockquote>
-    <details>this is a details
-      <summary>this is a summary</summary>
-    </details>
-		<code>this is code</code>
-		<audio controls>
-			<source
-				src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-				type="audio/mpeg" />
-			Your browser does not support the audio element.
-		</audio>
-    <p>this is<br /> a paragraph with a line break</p>
-    <video controls>
-      <source
-        src="https://www.w3schools.com/html/mov_bbb.mp4"
-        type="video/mp4" />
-      Your browser does not support the video tag.  
-  </video>
+		<div class="tab-box">
+			<div class="tab-nav">
+				<!---------------------tab 1-------------------->
+				<div class="tab">
+					<details
+						name="profile-tabs"
+						open>
+						<summary>About</summary>
 
+						<div class="tab-content">
+							<h2>ABOUT</h2>
+							<div class="inside">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae
+								ultrices lorem. Sed feugiat, mauris sit amet porta interdum, massa lacus
+								mattis justo, vel pretium nisi odio non est.
+							</div>
+						</div>
+					</details>
+				</div>
+
+				<!---------------------tab 2-------------------->
+				<div class="tab">
+					<details name="profile-tabs">
+						<summary>Disclaimer</summary>
+
+						<div class="tab-content">
+							<h2>DISCLAIMER</h2>
+							<div class="inside">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.
+								Vestibulum ac urna sed augue tempor aliquet.
+								<br /><br />
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae
+								ultrices lorem. Sed feugiat, mauris sit amet porta interdum, massa lacus
+								mattis justo, vel pretium nisi odio non est. Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Donec vitae ultrices lorem. Sed feugiat,
+								mauris sit amet porta interdum, massa lacus mattis justo, vel pretium
+								nisi odio non est.
+							</div>
+						</div>
+					</details>
+				</div>
+
+				<!---------------------tab 3-------------------->
+				<div class="tab">
+					<details name="profile-tabs">
+						<summary>Recommended</summary>
+
+						<div class="tab-content">
+							<h2>RECOMMENDED</h2>
+							<div class="inside">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+								ullamcorper neque sed dui tincidunt tempor.
+							</div>
+						</div>
+					</details>
+				</div>
+
+				<!---------------------tab 3-------------------->
+				<div class="tab">
+					<details name="profile-tabs">
+						<summary>Bonus One</summary>
+
+						<div class="tab-content">
+							<h2>BONUS ONE</h2>
+							<div class="inside">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							</div>
+						</div>
+					</details>
+				</div>
+
+				<!---------------------tab 4-------------------->
+				<div class="tab">
+					<details name="profile-tabs">
+						<summary>Bonus Two</summary>
+
+						<div class="tab-content">
+							<h2>BONUS TWO</h2>
+							<div class="inside">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							</div>
+						</div>
+					</details>
+				</div>
+
+				<!--closing divs, do not touch or delete-->
+			</div>
+		</div>
+
+		<style>
+			.tab-box {
+				grid-area: tab;
+				position: relative;
+				z-index: 2;
+			}
+
+			.tab-nav {
+				display: flex;
+				gap: 0.75rem;
+				overflow-x: auto;
+				overflow-y: hidden;
+				padding-bottom: 0.5rem;
+				scroll-snap-type: x proximity;
+			}
+
+			::-webkit-scrollbar {
+				height: 8px;
+			}
+
+			::-webkit-scrollbar-track {
+				background: #111;
+				border-radius: 999px;
+			}
+
+			::-webkit-scrollbar-thumb {
+				background: #3c0c10;
+				border-radius: 0;
+			}
+
+			.tab {
+				flex: 0 0 auto;
+			}
+
+			.tab details {
+				position: static;
+			}
+
+			.tab summary {
+				list-style: none;
+				cursor: pointer;
+				white-space: nowrap;
+				padding: 0.9rem 1.5rem;
+				border: 1px solid #2b0508;
+				border-radius: 999px;
+				background: linear-gradient(180deg, #050505, #090909);
+				color: #ddd;
+				font-family: "Fraunces", "DM Serif Text";
+				letter-spacing: 0.08em;
+				transition: 0.35s;
+			}
+
+			.tab summary::-webkit-details-marker {
+				display: none;
+			}
+
+			.tab summary:hover {
+				background: linear-gradient(180deg, #3c0c10, #220608);
+				border-color: #7b2a31;
+				color: #fff;
+			}
+
+			.tab details[open] summary {
+				background: linear-gradient(180deg, #3c0c10, #220608);
+				border-color: #7b2a31;
+				color: #fff;
+			}
+
+			.tab-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: calc(100% + 1rem);
+				display: none;
+				min-height: 350px;
+				padding: 2.5rem;
+				background: linear-gradient(180deg, #050505, #200000);
+				border: 3px solid #2b0508;
+				border-radius: 2rem;
+				color: #d5d5d5;
+				animation: fade 0.3s ease;
+			}
+
+			.tab details[open] .tab-content {
+				display: block;
+			}
+
+			.tab-content h2 {
+				margin: 0 0 1rem;
+				color: #fff;
+				font-family: "Fraunces", "DM Serif Text";
+				font-size: clamp(2rem, 4vw, 3rem);
+			}
+
+			@keyframes fade {
+				from {
+					opacity: 0;
+					transform: translateY(12px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.inside {
+				max-height: 220px;
+				overflow-y: auto;
+				padding-right: 6px;
+			}
+		</style>
 	</body>
 </html>
