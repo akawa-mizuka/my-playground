@@ -1,5 +1,5 @@
 function hitungTPM() {
-	// 1. Ambil nilai input
+	// 1. Ambil nilai data input
 	const volume = parseFloat(document.getElementById("volume").value);
 	const waktu = parseFloat(document.getElementById("waktu").value);
 	const faktor = parseFloat(document.getElementById("faktor").value);
@@ -22,10 +22,10 @@ function hitungTPM() {
 		`Simulasi: ${detikPerTetes} dtk/tetes`;
 	// 5. Update Animasi CSS via JavaScript
 	const dropElement = document.getElementById("drop");
-	// Reset Animasi Dulu (agar perubahan durasi terasa mulus)
+	// Reset Animasi Dulu (agar perubahan durasi mulus)
 	dropElement.style.animation = "none";
 
-	// Trigger Reflow DOM (trik JS agar animasi mereset ulang)
+	// Trigger Reflow DOM (animasi reset ulang)
 	void dropElement.offsetWidth;
 	// Set Durasi Animasi Baru & Mulai Animasi Loop
 	dropElement.style.animation = `dropFall ${detikPerTetes}s infinite linear`;

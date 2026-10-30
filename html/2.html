@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>blogpage pendidikan kesehatan</title>
+		<link
+			href="./css/style.css"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<strong>Draf blog awikwok</strong>
+		<ol>
+			<li>bikin topik kesehatan</li>
+			<li>
+				pengerian, penyebab, tanda, gejala,penanganan, pengobatan, daftar pustaka
+			</li>
+			<li>tambah media img or video</li>
+			<li>bikin framework</li>
+			<li>desain tampilan </li>
+			<li>something interative</li>
+			<li>something COOL</li>
+			<li>laporan pendahuluan, tin</li>
+			<li>publikasi</li>
+		</ol>
+
+		<h1>format </h1>
+		<ol>
+			<li>
+				<p>Identitas Tugas</p>
+				<ul>
+					<li> Judul Blog </li>
+					<li> Nama Penulis / Kelompok </li>
+					<li>NIM / Program Studi</li>
+					<li>Mata Kuliah</li>
+				</ul>
+			</li>
+			<li>
+				<p>Struktur Konten Blog</p>
+				<p>2.1Judul Artikel</p>
+				<ul>
+					<li> Menarik, singkat, relevan dengan topik kesehatan. </li>
+					<li> Contoh: “Cara Pencegahan Diabetes dengan Gaya Hidup Sehat”</li>
+				</ul>
+				<p>2.2 Pendahuluan</p>
+				<ul>
+					<li> Latar belakang pentingnya topik. </li>
+					<li> Menyampaikan permasalahan kesehatan yang dibahas. </li>
+				</ul>
+				<p>2.3 Isi Konten (Edukasi Kesehatan)</p>
+				<ul>
+					<li> Penjelasan sederhana, bahasa mudah dipahami. </li>
+					<li> Disertai poin-poin atau subjudul agar mudah dibaca. </li>
+					<li>
+						Bisa mencakup: definisi, penyebab, gejala, pencegahan, dan tips kesehatan.
+					</li>
+				</ul>
+				<p>2.4 Media Pendukung</p>
+				<ul>
+					<li>
+						Gambar, infografis, tabel, atau video singkat (jika platform mendukung).
+					</li>
+					<li> Sumber gambar harus jelas (free copyright/hasil sendiri). </li>
+				</ul>
+				<p>2.5 Kesimpulan / Ajakan</p>
+				<ul>
+					<li> Ringkasan inti edukasi. </li>
+					<li> Ajakan untuk menerapkan perilaku sehat. </li>
+				</ul>
+				<p>2.6 Daftar Pustaka / Referensi</p>
+				<ul>
+					<li
+						>Menggunakan minimal 3–5 referensi ilmiah (buku, jurnal, WHO,
+						Kemenkes).</li
+					>
+					<li>Format sesuai aturan kampus (APA).</li>
+				</ul>
+			</li>
+			<li>
+				<p>Format Teknis Penulisan</p>
+				<ul>
+					<li> Panjang tulisan: 700–1200 kata (disesuaikan ketentuan dosen). </li>
+					<li>
+						Bahasa: Indonesia baku, komunikatif, mudah dipahami masyarakat awam.
+					</li>
+					<li>
+						Font standar blog: Arial/Times New Roman, ukuran 11–12 pt (jika
+						dikumpulkan dalam dokumen).
+					</li>
+					<li> Layout blog rapi: gunakan heading (H1, H2, H3). </li>
+					<li> Hindari plagiarisme (cek dengan aplikasi plagiarism checker). </li>
+				</ul>
+			</li>
+			<li>
+				<p>Luaran / Hasil Akhir</p>
+				<ul>
+					<li>
+						Link blog aktif (misalnya di Blogger, Wordpress, Medium, atau platform
+						lain).
+					</li>
+				</ul>
+			</li>
+		</ol>
+
+		<div class="container">
+			<h2>Kalkulator Tetes Infus (TPM)</h2>
+			<!-- KOLOM KIRI: FORM INPUT -->
+			<div class="calculator-form">
+				<div class="form-group">
+					<label for="volume">Volume Cairan (mL):</label>
+					<input
+						type="number"
+						id="volume"
+						placeholder="Contoh: 500"
+						value="500" />
+				</div>
+				<div class="form-group">
+					<label for="waktu">Lama Pemberian (Jam):</label>
+					<input
+						type="number"
+						id="waktu"
+						placeholder="Contoh: 8"
+						value="8" />
+				</div>
+				<div class="form-group">
+					<label for="faktor">Jenis / Faktor Tetes:</label>
+					<select id="faktor">
+						<option value="20">Makro (Dewasa) - 20 tetes/mL</option>
+						<option value="15">Makro (Dewasa) - 15 tetes/mL</option>
+						<option value="60">Mikro (Anak/Pediatrik) - 60 tetes/mL</option>
+					</select>
+				</div>
+				<button onclick="hitungTPM()">Hitung & Simulasi</button>
+				<!-- HASIL PERHITUNGAN -->
+				<div class="result-box">
+					<h4>Kecepatan Tetesan:</h4>
+					<div
+						class="result-value"
+						id="res-tpm"
+						>0 TPM</div
+					>
+					<small id="res-detik">Silakan tekan tombol hitung.</small>
+				</div>
+			</div>
+			<!-- KOLOM KANAN: ANIMASI VISUALISASI -->
+			<div class="visualizer">
+				<div class="drip-chamber">
+					<div class="nozzle"></div>
+
+					<!-- Icon Air Tetesan (SVG) -->
+					<svg
+						id="drop"
+						class="water-drop"
+						viewBox="0 0 24 24">
+						<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+					</svg>
+					<div class="liquid-pool"></div>
+				</div>
+				<div
+					class="visual-status"
+					id="visual-status"
+					>Visualisasi tetesan siap</div
+				>
+			</div>
+		</div>
+		<script src="./js/iv.js"></script>
+	</body>
+</html>
