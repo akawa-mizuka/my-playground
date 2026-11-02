@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panduan Ukuran & Warna Jarum Infus (Abocath)</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        background-color: #f8fafc;
+        color: #334155;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .guide-card {
+        background: #ffffff;
+        width: 100%;
+        max-width: 850px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        padding: 28px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .header h2 {
+        color: #0f172a;
+        font-size: 24px;
+        margin-bottom: 6px;
+      }
+      .header p {
+        color: #64748b;
+        font-size: 14px;
+      }
+      /* --- TOMBOL PILIHAN GAUGE --- */
+      .gauge-selector {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+      }
+      .btn-gauge {
+        border: 2px solid transparent;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #e2e8f0;
+        color: #334155;
+      }
+      .btn-gauge:hover {
+        transform: translateY(-2px);
+      }
+      .btn-gauge.active {
+        border-color: #0f172a;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: scale(1.05);
+      }
+      /* --- DISPLAY UTAMA --- */
+      .display-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 24px;
+        background: #f1f5f9;
+        padding: 24px;
+        border-radius: 12px;
+      }
+      @media (max-width: 650px) {
+        .display-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* Vektor SVG Jarum Infus */
+      .visual-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #e2e8f0;
+      }
+      .needle-svg {
+        width: 180px;
+        height: auto;
+        margin-bottom: 15px;
+        transition: fill 0.3s ease;
+      }
+      /* Progress Bar Kecepatan Aliran */
+      .flow-meter {
+        width: 100%;
+        margin-top: 10px;
+      }
+      .flow-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: #475569;
+      }
+      .progress-bg {
+        background: #e2e8f0;
+        height: 10px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        border-radius: 20px;
+        transition:
+          width 0.4s ease,
+          background-color 0.3s ease;
+      }
+      /* Detail Spesifikasi Medis */
+      .details-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .badge-color {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 10px;
+        width: fit-content;
+      }
+      .spec-list {
+        list-style: none;
+        margin-top: 10px;
+      }
+      .spec-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #cbd5e1;
+        font-size: 14px;
+      }
+      .spec-item span:first-child {
+        color: #64748b;
+      }
+      .spec-item span:last-child {
+        font-weight: 600;
+      }
+      .indication-box {
+        margin-top: 15px;
+        background: #ffffff;
+        padding: 12px;
+        border-radius: 8px;
+        border-left: 4px solid #0284c7;
+      }
+      .indication-box h4 {
+        font-size: 13px;
+        color: #0284c7;
+        margin-bottom: 4px;
+      }
+      .indication-box p {
+        font-size: 13px;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="guide-card">
+      <div class="header">
+        <h2>Panduan Ukuran & Warna Jarum Infus</h2>
+        <p>
+          Pilih ukuran Gauge (G) untuk melihat standar warna, debit aliran, dan
+          indikasi medisnya.
+        </p>
+      </div>
+      <!-- Pilihan Tombol Ukuran Jarum -->
+      <div class="gauge-selector" id="button-container"></div>
+      <!-- Tampilan Visual & Informasi Medis -->
+      <div class="display-grid">
+        <!-- Kolom Visual SVG -->
+        <div class="visual-box">
+          <!-- SVG Sederhana Ilustrasi Hub Kanula Infus -->
+          <svg class="needle-svg" viewBox="0 0 200 80">
+            <!-- Jarum Logam -->
+            <rect x="140" y="38" width="50" height="4" fill="#94a3b8" />
+            <polygon points="190,38 200,40 190,42" fill="#64748b" />
+            <!-- Pangkal Plastik (Hub) - Warna Berganti Dinamis -->
+            <rect
+              id="hub-body"
+              x="60"
+              y="28"
+              width="80"
+              height="24"
+              rx="4"
+              fill="#ff6f00"
+            />
+            <rect
+              id="hub-wing"
+              x="80"
+              y="15"
+              width="40"
+              height="50"
+              rx="3"
+              fill="#ff6f00"
+              opacity="0.8"
+            />
+            <!-- Tutup Belakang (Luer Lock) -->
+            <rect x="20" y="32" width="40" height="16" rx="2" fill="#cbd5e1" />
+          </svg>
+          <!-- Progress Bar Kecepatan Aliran -->
+          <div class="flow-meter">
+            <div class="flow-label">
+              <span>Kecepatan Aliran (Flow Rate)</span>
+              <span id="flow-text">0 mL/min</span>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" id="flow-bar"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Kolom Spesifikasi -->
+        <div class="details-box">
+          <span class="badge-color" id="badge-color">Warna Standar</span>
+          <h3 id="gauge-title" style="font-size: 22px; margin-bottom: 4px">
+            --
+          </h3>
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span>Diameter Luar:</span>
+              <span id="spec-diameter">-</span>
+            </li>
+            <li class="spec-item">
+              <span>Panjang Jarum:</span>
+              <span id="spec-length">-</span>
+            </li>
+            <li class="spec-item">
+              <span>Target Pasien:</span>
+              <span id="spec-target">-</span>
+            </li>
+          </ul>
+          <div class="indication-box">
+            <h4>Indikasi Penggunaan:</h4>
+            <p id="spec-indications">-</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // DATA SPESIFIKASI ABOCATH (ISO Standard Colors)
+      const cannulaData = [
+        {
+          gauge: "14G",
+          colorName: "Oranye",
+          hexColor: "#ff6f00",
+          textColor: "#ffffff",
+          diameter: "2.1 mm",
+          length: "45 mm",
+          flowRate: 270, // mL/min (Rata-rata)
+          maxFlowRate: 270, // Nilai acuan max untuk bar 100%
+          target: "Dewasa (Darurat Utama)",
+          indications:
+            "Resusitasi cairan sangat cepat, trauma berat, pendarahan masif, transfusi darah darurat.",
+        },
+        {
+          gauge: "16G",
+          colorName: "Abu-Abu",
+          hexColor: "#64748b",
+          textColor: "#ffffff",
+          diameter: "1.7 mm",
+          length: "45 mm",
+          flowRate: 200,
+          target: "Dewasa (Bedah/Trauma)",
+          indications:
+            "Operasi besar, pembedahan terbuka, transfusi darah cepat, resusitasi cairan masif.",
+        },
+        {
+          gauge: "18G",
+          colorName: "Hijau",
+          hexColor: "#16a34a",
+          textColor: "#ffffff",
+          diameter: "1.3 mm",
+          length: "45 mm",
+          flowRate: 105,
+          target: "Dewasa & Remaja",
+          indications:
+            "Transfusi darah rutin, pemberian nutrisi parenteral, CT Scan dengan kontras.",
+        },
+        {
+          gauge: "20G",
+          colorName: "Merah Muda (Pink)",
+          hexColor: "#ec4899",
+          textColor: "#ffffff",
+          diameter: "1.1 mm",
+          length: "32 mm",
+          flowRate: 60,
+          target: "Dewasa Umum (Paling Sering)",
+          indications:
+            "Pemberian obat IV rutin, infus cairan rawat inap, sampel darah, pasien dengan pembuluh darah normal.",
+        },
+        {
+          gauge: "22G",
+          colorName: "Biru",
+          hexColor: "#0284c7",
+          textColor: "#ffffff",
+          diameter: "0.9 mm",
+          length: "25 mm",
+          flowRate: 36,
+          target: "Anak, Lansia, Vena Kecil",
+          indications:
+            "Pasien dengan vena tipis/rapuh, lansia, anak-anak, infus obat dosis lambat.",
+        },
+        {
+          gauge: "24G",
+          colorName: "Kuning",
+          hexColor: "#eab308",
+          textColor: "#000000",
+          diameter: "0.7 mm",
+          length: "19 mm",
+          flowRate: 20,
+          target: "Bayi & Anak (Pediatrik)",
+          indications:
+            "Neonatus, bayi, anak kecil, pasien dengan vena sangat kecil dan rawan pecah.",
+        },
+        {
+          gauge: "26G",
+          colorName: "Ungu",
+          hexColor: "#9333ea",
+          textColor: "#ffffff",
+          diameter: "0.6 mm",
+          length: "19 mm",
+          flowRate: 13,
+          target: "Bayi Prematur / Neonatus",
+          indications:
+            "Bayi baru lahir berukuran sangat kecil, perawatan intensif neonatus (NICU).",
+        },
+      ];
+
+      const buttonContainer = document.getElementById("button-container");
+
+      // 1. Render Tombol Pilihan Secara Dinamis
+      cannulaData.forEach((item, index) => {
+        const btn = document.createElement("button");
+        btn.className = `btn-gauge ${index === 3 ? "active" : ""}`; // Default aktif ke 20G (Pink)
+        btn.innerText = item.gauge;
+        btn.style.backgroundColor = item.hexColor;
+        btn.style.color = item.textColor;
+        btn.onclick = () => selectGauge(index);
+        buttonContainer.appendChild(btn);
+      });
+
+      // 2. Fungsi Update UI saat Gauge Dipilih
+      function selectGauge(index) {
+        const data = cannulaData[index];
+
+        // Highlight Tombol Aktif
+        const buttons = document.querySelectorAll(".btn-gauge");
+        buttons.forEach((btn, i) => {
+          if (i === index) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        // Update SVG Color
+        document.getElementById("hub-body").setAttribute("fill", data.hexColor);
+        document.getElementById("hub-wing").setAttribute("fill", data.hexColor);
+
+        // Update Text & Specs
+        document.getElementById("gauge-title").innerText =
+          `Jarum ${data.gauge}`;
+        document.getElementById("badge-color").innerText =
+          `Warna: ${data.colorName}`;
+        document.getElementById("badge-color").style.backgroundColor =
+          data.hexColor;
+        document.getElementById("badge-color").style.color = data.textColor;
+        document.getElementById("spec-diameter").innerText = data.diameter;
+        document.getElementById("spec-length").innerText = data.length;
+        document.getElementById("spec-target").innerText = data.target;
+        document.getElementById("spec-indications").innerText =
+          data.indications;
+
+        // Update Flow Meter Progress Bar (Berdasarkan max 270 mL/min)
+        const percentage = (data.flowRate / 270) * 100;
+        const flowBar = document.getElementById("flow-bar");
+        flowBar.style.width = `${percentage}%`;
+        flowBar.style.backgroundColor = data.hexColor;
+        document.getElementById("flow-text").innerText =
+          `~${data.flowRate} mL/menit`;
+      }
+
+      // Initialize Pertama Kali (20G Pink)
+      selectGauge(3);
+    </script>
+  </body>
+</html>

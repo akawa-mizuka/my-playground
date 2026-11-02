@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizer Osmosis Sel Darah Merah</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f1f5f9;
+        color: #1e293b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .card {
+        background: #ffffff;
+        width: 100%;
+        max-width: 750px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        padding: 28px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .header h2 {
+        color: #0f172a;
+        font-size: 22px;
+        margin-bottom: 6px;
+      }
+
+      .header p {
+        color: #64748b;
+        font-size: 14px;
+      }
+
+      /* --- CONTROLS --- */
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+
+      .btn-solution {
+        padding: 10px 18px;
+        border: 2px solid #cbd5e1;
+        background: #ffffff;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        color: #475569;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .btn-solution:hover {
+        border-color: #0284c7;
+        color: #0284c7;
+      }
+
+      .btn-solution.active {
+        background: #0284c7;
+        color: #ffffff;
+        border-color: #0284c7;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      }
+
+      /* --- VISUALIZER CONTAINER --- */
+      .solution-environment {
+        height: 260px;
+        border-radius: 14px;
+        background-color: #e0f2fe; /* Default isotonic solution color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.5s ease;
+        border: 1px solid #bae6fd;
+      }
+
+      /* --- RED BLOOD CELL (RBC) STYLING --- */
+      .rbc {
+        width: 130px;
+        height: 130px;
+        background: radial-gradient(
+          circle,
+          #fca5a5 0%,
+          #ef4444 60%,
+          #991b1b 100%
+        );
+        box-shadow:
+          inset 0 0 15px rgba(0, 0, 0, 0.3),
+          0 10px 20px rgba(185, 28, 28, 0.25);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Cekungan Bikonkaf (Tengah Sel) */
+      .rbc::after {
+        content: "";
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(239, 68, 68, 0.9) 0%,
+          rgba(252, 165, 165, 0.4) 100%
+        );
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.6s ease;
+      }
+
+      /* STATE 1: ISOTONIS (NORMAL) */
+      .rbc.isotonic {
+        transform: scale(1);
+        border-radius: 50%;
+      }
+
+      /* STATE 2: HIPOTONIS (MENGEMBANG / SWOLLEN) */
+      .rbc.hypotonic {
+        transform: scale(1.4);
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          #fca5a5 0%,
+          #ef4444 80%,
+          #b91c1c 100%
+        );
+        box-shadow:
+          inset 0 0 5px rgba(0, 0, 0, 0.1),
+          0 15px 30px rgba(185, 28, 28, 0.35);
+      }
+      .rbc.hypotonic::after {
+        opacity: 0.2; /* Cekungan memudar karena sel meregang */
+        transform: scale(1.3);
+      }
+
+      /* STATE 3: HIPERTONIS (MENGKERUT / CRENAITED) */
+      .rbc.hypertonic {
+        transform: scale(0.72);
+        /* Membentuk lekukan spiky/keriput khas pengerutan sel darah */
+        border-radius: 38% 62% 41% 59% / 55% 38% 62% 45%;
+        background: radial-gradient(
+          circle,
+          #ef4444 0%,
+          #991b1b 70%,
+          #450a0a 100%
+        );
+        box-shadow:
+          inset 0 0 20px rgba(0, 0, 0, 0.6),
+          0 5px 10px rgba(0, 0, 0, 0.3);
+        animation: crenatePulse 3s infinite alternate ease-in-out;
+      }
+      .rbc.hypertonic::after {
+        opacity: 0.8;
+        transform: scale(0.6);
+        border-radius: 40% 60% 50% 50%;
+      }
+
+      @keyframes crenatePulse {
+        0% {
+          border-radius: 38% 62% 41% 59% / 55% 38% 62% 45%;
+        }
+        100% {
+          border-radius: 45% 55% 58% 42% / 40% 58% 42% 60%;
+        }
+      }
+
+      /* --- DIREKSI ALIRAN AIR (PANAH ANIMASI) --- */
+      .water-flow-indicator {
+        position: absolute;
+        bottom: 12px;
+        right: 16px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #0369a1;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 6px 12px;
+        border-radius: 20px;
+      }
+
+      /* --- INFO BOX --- */
+      .info-box {
+        margin-top: 20px;
+        padding: 16px;
+        background: #f8fafc;
+        border-left: 4px solid #0284c7;
+        border-radius: 8px;
+      }
+
+      .info-box h4 {
+        color: #0369a1;
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .info-box p {
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: #334155;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <h2>Simulasi Osmosis Sel Darah Merah</h2>
+        <p>
+          Pilih konsentrasi cairan infus/larutan untuk melihat efek osmotik pada
+          eritrosit.
+        </p>
+      </div>
+
+      <!-- Tombol Pilihan Larutan -->
+      <div class="controls">
+        <button class="btn-solution active" onclick="setSolution('isotonic')">
+          Isotonis (0.9% NaCl)
+        </button>
+        <button class="btn-solution" onclick="setSolution('hypotonic')">
+          Hipotonis (&lt;0.9% NaCl)
+        </button>
+        <button class="btn-solution" onclick="setSolution('hypertonic')">
+          Hipertonis (&gt;0.9% NaCl)
+        </button>
+      </div>
+
+      <!-- Wadah Larutan & Sel -->
+      <div class="solution-environment" id="environment">
+        <div class="rbc isotonic" id="cell"></div>
+        <div class="water-flow-indicator" id="water-flow">
+          Aliran Air: Seimbang (In = Out)
+        </div>
+      </div>
+
+      <!-- Deskripsi Medis -->
+      <div class="info-box">
+        <h4 id="info-title">Larutan Isotonis</h4>
+        <p id="info-desc">
+          Konsentrasi zat terlarut di luar sel sama dengan di dalam sel. Aliran
+          air masuk dan keluar sel berada dalam keseimbangan. Bentuk bikonkaf
+          sel darah merah tetap normal dan optimal untuk mengangkut oksigen.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const solutionData = {
+        isotonic: {
+          bgColor: "#e0f2fe",
+          borderClr: "#bae6fd",
+          flowText: "Aliran Air: Seimbang (Netral)",
+          title: "Larutan Isotonis (e.g., NaCl 0.9% / Normal Saline)",
+          desc: "Konsentrasi zat terlarut di dalam dan luar sel sama. Aliran air masuk dan keluar sel seimbang, sehingga sel mempertahankan bentuk bikonkaf alaminya tanpa risiko pecah atau mengkerut.",
+        },
+        hypotonic: {
+          bgColor: "#f0f9ff",
+          borderClr: "#7dd3fc",
+          flowText: "Aliran Air: Masuk ke Dalam Sel (H2O In)",
+          title: "Larutan Hipotonis (e.g., Akua Destilata / NaCl 0.45%)",
+          desc: "Konsentrasi di luar sel lebih rendah dibanding di dalam sel. Air masuk ke dalam sel secara osmosis secara masif, membuat sel membengkak (*swollen*) dan berisiko pecah (*hemolisis*).",
+        },
+        hypertonic: {
+          bgColor: "#bae6fd",
+          borderClr: "#38bdf8",
+          flowText: "Aliran Air: Keluar dari Sel (H2O Out)",
+          title: "Larutan Hipertonis (e.g., NaCl 3% / Dextrose 10%)",
+          desc: "Konsentrasi di luar sel lebih tinggi. Air ditarik keluar dari dalam sel menuju lingkungan luar, menyebabkan sel kehilangan volume, mengkerut, dan berbentuk keriput/spiky (*krenasi*).",
+        },
+      };
+
+      function setSolution(type) {
+        // Active Button Toggle
+        const buttons = document.querySelectorAll(".btn-solution");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        // Cell Class Update
+        const cell = document.getElementById("cell");
+        cell.className = `rbc ${type}`;
+
+        // Environment Background & Info Update
+        const env = document.getElementById("environment");
+        const data = solutionData[type];
+
+        env.style.backgroundColor = data.bgColor;
+        env.style.borderColor = data.borderClr;
+
+        document.getElementById("water-flow").innerText = data.flowText;
+        document.getElementById("info-title").innerText = data.title;
+        document.getElementById("info-desc").innerText = data.desc;
+      }
+    </script>
+  </body>
+</html>
