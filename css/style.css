@@ -491,10 +491,8 @@ button:hover {
 }
 .author-info tr .title {
   font-weight: bold;
-  /* padding: 5px; */
-  width: fit-content;
+  width: 120px;
 }
-
 .author-info tr .text {
   padding-left: 10px;
 }
