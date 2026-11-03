@@ -489,10 +489,22 @@ button:hover {
     padding: 16px;
   }
 }
+.author-info tr .title {
+  font-weight: bold;
+  /* padding: 5px; */
+  width: fit-content;
+}
+
+.author-info tr .text {
+  padding-left: 10px;
+}
 .blog-content,
 .blog-references {
   width: 100%;
   max-width: 900px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }
 .blog-content ul,
 .blog-content ol {
