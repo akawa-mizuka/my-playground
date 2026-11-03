@@ -1,7 +1,7 @@
 /* --- STYLES DASAR & LAYOUT --- */
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   margin: 0;
   padding: 0;
 }
@@ -27,9 +27,7 @@ body {
 }
 #calculator-title {
   grid-column: 1 / -1;
-  /* color: #0284c7; */
-  /* text-align: center; */
-  margin-bottom: 10px;
+  text-align: center;
 }
 /* --- FORM INPUT --- */
 .form-group {
@@ -490,4 +488,14 @@ button:hover {
     grid-template-columns: 1fr;
     padding: 16px;
   }
+}
+.blog-content,
+.blog-references {
+  width: 100%;
+  max-width: 900px;
+}
+.blog-content ul,
+.blog-content ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
 }
