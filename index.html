@@ -8,6 +8,12 @@
       Hingga Pencegahan Komplikasi
     </title>
     <link href="./css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section class="blog-content">
@@ -15,30 +21,35 @@
         Panduan Terapi Intravena (IV): Dari Jenis Cairan, Pemilihan Jalur Vena,
         Hingga Pencegahan Komplikasi
       </h1>
-    
-        <table class="author-info">
-          <tr>
-            <td class="title">Penulis</td>
-            <td class="text">: Akwalia Khairummina</td>
-          </tr>
-          <tr>
-            <td class="title">NIM</td>
-            <td class="text" >: 2514201110089</td>
-          </tr>
-          <tr>
-            <td class="title">Program Studi:</td>
-            <td class="text">: S1 Keperawatan</td>
-          </tr>
-          <tr>
-            <td class="title">Mata Kuliah:</td>
-            <td class="text">: Sistem Informasi Keperawatan</td>
-          </tr>
-          <tr>
-            <td class="title">Fakultas:</td>
-            <td class="text">: Fakultas Ilmu Keperawatan dan Kesehatan</td>
-          </tr>
-        </table>
-      </dl>
+
+      <table class="author-info">
+        <tr>
+          <td class="title">Penulis</td>
+          <td>:</td>
+          <td class="text">Akwalia Khairummina</td>
+        </tr>
+        <tr>
+          <td class="title">NIM</td>
+          <td>:</td>
+          <td class="text">2514201110089</td>
+        </tr>
+        <tr>
+          <td class="title">Program Studi</td>
+          <td>:</td>
+          <td class="text">S1 Keperawatan</td>
+        </tr>
+        <tr>
+          <td class="title">Mata Kuliah</td>
+          <td>:</td>
+          <td class="text">Sistem Informasi Keperawatan</td>
+        </tr>
+        <tr>
+          <td class="title">Fakultas</td>
+          <td>:</td>
+          <td class="text">Fakultas Ilmu Keperawatan dan Kesehatan</td>
+        </tr>
+      </table>
+
       <p>
         Satu kantong infus tampak sederhana, tetapi di balik tetesan itu ada
         fisika aliran, kimia larutan, anatomi vena, dan risiko komplikasi yang
@@ -111,79 +122,84 @@
         plasma normal berada di kisaran 275-295 mOsm/L.
       </p>
       <h3>Jenis Utama Cairan Infus</h3>
-      <table>
-        <tr>
-          <th>Cairan</th>
-          <th>Osmolaritas (mOsm/L)</th>
-          <th>Perilaku di tubuh</th>
-          <th>Contoh penggunaan</th>
-          <th>Catatan penting</th>
-        </tr>
-        <tr>
-          <td>NaCl 0,9% (NS)</td>
-          <td>308</td>
-          <td>Isotonik</td>
-          <td>Resusitasi, pengganti cairan ekstraseluler</td>
-          <td>
-            Na⁺ 154 dan Cl⁻ 154 mmol/L; pemberian besar berisiko hiperkloremia
-          </td>
-        </tr>
-        <tr>
-          <td>Ringer laktat (RL)</td>
-          <td>273</td>
-          <td>Isotonik</td>
-          <td>Resusitasi, dehidrasi, kehilangan darah</td>
-          <td>
-            Mengandung K⁺ 4 dan laktat 28 mmol/L; hati-hati pada gagal ginjal
-            berat dan gangguan metabolisme laktat
-          </td>
-        </tr>
-        <tr>
-          <td>Dekstrosa 5% (D5W)</td>
-          <td>252-253</td>
-          <td>
-            Isotonik di kantong, menjadi hipotonik setelah dekstrosa
-            dimetabolisme
-          </td>
-          <td>Sumber air bebas, hipernatremia, pembawa obat</td>
-          <td>Risiko hiponatremia dan edema sel bila berlebihan</td>
-        </tr>
-        <tr>
-          <td>NaCl 0,45%</td>
-          <td>154</td>
-          <td>Hipotonik</td>
-          <td>Koreksi defisit air bebas</td>
-          <td>Pantau natrium serum</td>
-        </tr>
-        <tr>
-          <td>D5 ½ NS</td>
-          <td>406</td>
-          <td>Efek akhir hipotonik</td>
-          <td>Rumatan pada pasien tertentu</td>
-          <td>Pantau glukosa, natrium, kalium</td>
-        </tr>
-        <tr>
-          <td>D5 NS</td>
-          <td>560</td>
-          <td>Efek akhir isotonik</td>
-          <td>Kalori, air, dan elektrolit</td>
-          <td>Waspadai kelebihan volume</td>
-        </tr>
-        <tr>
-          <td>D5 RL</td>
-          <td>527</td>
-          <td>Efek akhir isotonik</td>
-          <td>Kalori, air, dan elektrolit</td>
-          <td>Waspadai kelebihan volume</td>
-        </tr>
-        <tr>
-          <td>NaCl 3%</td>
-          <td>1026</td>
-          <td>Hipertonik</td>
-          <td>Hiponatremia berat dengan pemantauan ketat</td>
-          <td>Melewati batas osmolaritas untuk akses perifer jangka panjang</td>
-        </tr>
-      </table>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>Cairan</th>
+            <th>Osmolaritas (mOsm/L)</th>
+            <th>Perilaku di tubuh</th>
+            <th>Contoh penggunaan</th>
+            <th>Catatan penting</th>
+          </tr>
+          <tr>
+            <td>NaCl 0,9% (NS)</td>
+            <td>308</td>
+            <td>Isotonik</td>
+            <td>Resusitasi, pengganti cairan ekstraseluler</td>
+            <td>
+              Na⁺ 154 dan Cl⁻ 154 mmol/L; pemberian besar berisiko hiperkloremia
+            </td>
+          </tr>
+          <tr>
+            <td>Ringer laktat (RL)</td>
+            <td>273</td>
+            <td>Isotonik</td>
+            <td>Resusitasi, dehidrasi, kehilangan darah</td>
+            <td>
+              Mengandung K⁺ 4 dan laktat 28 mmol/L; hati-hati pada gagal ginjal
+              berat dan gangguan metabolisme laktat
+            </td>
+          </tr>
+          <tr>
+            <td>Dekstrosa 5% (D5W)</td>
+            <td>252-253</td>
+            <td>
+              Isotonik di kantong, menjadi hipotonik setelah dekstrosa
+              dimetabolisme
+            </td>
+            <td>Sumber air bebas, hipernatremia, pembawa obat</td>
+            <td>Risiko hiponatremia dan edema sel bila berlebihan</td>
+          </tr>
+          <tr>
+            <td>NaCl 0,45%</td>
+            <td>154</td>
+            <td>Hipotonik</td>
+            <td>Koreksi defisit air bebas</td>
+            <td>Pantau natrium serum</td>
+          </tr>
+          <tr>
+            <td>D5 ½ NS</td>
+            <td>406</td>
+            <td>Efek akhir hipotonik</td>
+            <td>Rumatan pada pasien tertentu</td>
+            <td>Pantau glukosa, natrium, kalium</td>
+          </tr>
+          <tr>
+            <td>D5 NS</td>
+            <td>560</td>
+            <td>Efek akhir isotonik</td>
+            <td>Kalori, air, dan elektrolit</td>
+            <td>Waspadai kelebihan volume</td>
+          </tr>
+          <tr>
+            <td>D5 RL</td>
+            <td>527</td>
+            <td>Efek akhir isotonik</td>
+            <td>Kalori, air, dan elektrolit</td>
+            <td>Waspadai kelebihan volume</td>
+          </tr>
+          <tr>
+            <td>NaCl 3%</td>
+            <td>1026</td>
+            <td>Hipertonik</td>
+            <td>Hiponatremia berat dengan pemantauan ketat</td>
+            <td>
+              Melewati batas osmolaritas untuk akses perifer jangka panjang
+            </td>
+          </tr>
+        </table>
+      </div>
+
       <p>
         Nilai osmolaritas di atas bersumber dari kartu rujukan klinis
         keperawatan (NursingCenter, 2024b).
@@ -233,7 +249,7 @@
             data-solution="isotonic"
             aria-pressed="true"
           >
-            Isotonis (0.9% NaCl)
+            Isotonik (0.9% NaCl)
           </button>
           <button
             class="osmosis-button"
@@ -241,7 +257,7 @@
             data-solution="hypotonic"
             aria-pressed="false"
           >
-            Hipotonis (&lt;0.9% NaCl)
+            Hipotonik (&lt;0.9% NaCl)
           </button>
           <button
             class="osmosis-button"
@@ -249,7 +265,7 @@
             data-solution="hypertonic"
             aria-pressed="false"
           >
-            Hipertonis (&gt;0.9% NaCl)
+            Hipertonik (&gt;0.9% NaCl)
           </button>
         </div>
         <div class="osmosis-environment" id="osmosis-environment">
@@ -341,12 +357,14 @@
         </li>
       </ul>
       <h3>Perhitungan laju alir infus</h3>
-      <!-- entah kenapa jadi center??? -->
-      <p>Rumus dasar tetesan per menit (tpm):</p>
-      <strong
-        >tpm = (volume cairan dalam mL × faktor tetes) ÷ waktu pemberian dalam
-        menit</strong
-      >
+      <div class="formula-box">
+        <strong>Rumus dasar tetesan per menit (tpm):</strong>
+        <b
+          >tpm = (volume cairan dalam mL × faktor tetes) ÷ waktu pemberian dalam
+          menit</b
+        >
+      </div>
+
       <p>
         Faktor tetes ditentukan oleh set infus: makrodrip umumnya 15 atau 20
         tetes/mL (periksa kemasan), mikrodrip 60 tetes/mL.
@@ -557,70 +575,72 @@
         laju aliran yang besar, sementara kateter yang lebih pendek mengalirkan
         lebih cepat daripada yang panjang.
       </p>
-      <table>
-        <tr>
-          <th>Gauge</th>
-          <th>Warna</th>
-          <th>diameter (kira-kira)</th>
-          <th>Laju Alir (kira-kira)</th>
-          <th>Penggunaan umum</th>
-        </tr>
-        <tr>
-          <td>14G</td>
-          <td>Oranye</td>
-          <td>2,0–2,1 mm</td>
-          <td>240–270 mL/menit</td>
-          <td>Trauma mayor, resusitasi cepat, bedah besar</td>
-        </tr>
-        <tr>
-          <td>16G</td>
-          <td>Abu-abu</td>
-          <td>1,7–1,8 mm</td>
-          <td>180–210 mL/menit</td>
-          <td>Trauma, transfusi cepat, bedah</td>
-        </tr>
-        <tr>
-          <td>18G</td>
-          <td>Hijau</td>
-          <td>1,3–1,4 mm</td>
-          <td>90–120 mL/menit</td>
-          <td>Transfusi darah, cairan kental, bedah</td>
-        </tr>
-        <tr>
-          <td>20G</td>
-          <td>Pink</td>
-          <td>0,9–1,0 mm</td>
-          <td>60–80 mL/menit</td>
-          <td>Infus rutin dewasa, pemberian obat</td>
-        </tr>
-        <tr>
-          <td>22G</td>
-          <td>Biru</td>
-          <td>0,7–0,8 mm</td>
-          <td>20-30 mL/menit</td>
-          <td>Lansia, vena kecil, anak-anak</td>
-        </tr>
-        <tr>
-          <td>24G</td>
-          <td>kuning</td>
-          <td>0,5–0,6 mm</td>
-          <td>10-15 mL/menit</td>
-          <td>Anak-anak, neonatus, vena rapuh</td>
-        </tr>
-        <tr>
-          <td>26G</td>
-          <td>ungu</td>
-          <td>0,4–0,5 mm</td>
-          <td>10–20 mL/menit</td>
-          <td>neonatus dan bayi prematur, vena sangat rapuh</td>
-        </tr>
-      </table>
-      <p>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>Gauge</th>
+            <th>Warna</th>
+            <th>diameter (kira-kira)</th>
+            <th>Laju Alir (kira-kira)</th>
+            <th>Penggunaan umum</th>
+          </tr>
+          <tr>
+            <td>14G</td>
+            <td>Oranye</td>
+            <td>2,1 mm</td>
+            <td>~270 mL/menit</td>
+            <td>Trauma mayor, resusitasi cepat, bedah besar</td>
+          </tr>
+          <tr>
+            <td>16G</td>
+            <td>Abu-abu</td>
+            <td>1,7 mm</td>
+            <td>~200 mL/menit</td>
+            <td>Trauma, transfusi cepat, bedah</td>
+          </tr>
+          <tr>
+            <td>18G</td>
+            <td>Hijau</td>
+            <td>1,3 mm</td>
+            <td>~105 mL/menit</td>
+            <td>Transfusi darah, cairan kental, bedah</td>
+          </tr>
+          <tr>
+            <td>20G</td>
+            <td>Pink</td>
+            <td>1,1 mm</td>
+            <td>~60 mL/menit</td>
+            <td>Infus rutin dewasa, pemberian obat</td>
+          </tr>
+          <tr>
+            <td>22G</td>
+            <td>Biru</td>
+            <td>0,9 mm</td>
+            <td>~36 mL/menit</td>
+            <td>Lansia, vena kecil, anak-anak</td>
+          </tr>
+          <tr>
+            <td>24G</td>
+            <td>kuning</td>
+            <td>0,7 mm</td>
+            <td>~20 mL/menit</td>
+            <td>Anak-anak, neonatus, vena rapuh</td>
+          </tr>
+          <tr>
+            <td>26G</td>
+            <td>ungu</td>
+            <td>0,6 mm</td>
+            <td>~13 mL/menit</td>
+            <td>neonatus dan bayi prematur, vena sangat rapuh</td>
+          </tr>
+        </table>
+      </div>
+      <q>
         <b>Catatan:</b> angka laju alir dan diameter berasal dari literatur dan
         katalog produsen, bukan nilai tetap. Hasil nyata bervariasi menurut
         merek, panjang kateter, viskositas cairan, dan tekanan (gravitasi atau
         pompa). Selalu rujuk kemasan produk yang Anda gunakan.
-      </p>
+      </q>
       <h3>Prinsip memilih ukuran</h3>
       <ul>
         <li>
@@ -789,70 +809,76 @@
         sering pada infus kontinu atau obat berisiko.
       </p>
       <h4>Ringkasan skala flebitis (INS)</h4>
-      <table>
-        <tr>
-          <th>Grade</th>
-          <th>Temuan klinis</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>Tidak ada gejala</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Kemerahan di lokasi tusukan, dengan atau tanpa nyeri</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Nyeri, kemerahan, dan/atau bengkak di lokasi tusukan</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Nyeri, kemerahan, vena mengeras dan teraba seperti tali</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>
-            Seperti grade 3, tali vena teraba lebih panjang dan/atau keluar
-            nanah
-          </td>
-        </tr>
-      </table>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>Grade</th>
+            <th>Temuan klinis</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>Tidak ada gejala</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Kemerahan di lokasi tusukan, dengan atau tanpa nyeri</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Nyeri, kemerahan, dan/atau bengkak di lokasi tusukan</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Nyeri, kemerahan, vena mengeras dan teraba seperti tali</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              Seperti grade 3, tali vena teraba lebih panjang dan/atau keluar
+              nanah
+            </td>
+          </tr>
+        </table>
+      </div>
       <h4>Ringkasan skala infiltrasi (INS)</h4>
-      <table>
-        <tr>
-          <th>Grade</th>
-          <th>Temuan klinis</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>Tidak ada gejala</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Kulit pucat, bengkak ringan, dingin, dengan atau tanpa nyeri</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>
-            Kulit pucat, bengkak lebih luas, dingin, dengan atau tanpa nyeri
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>
-            Pucat dan tembus pandang, bengkak luas, dingin, nyeri ringan-sedang,
-            mungkin mati rasa
-          </td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>
-            Kulit tegang, bocor, lebam, bengkak luas, gangguan sirkulasi, nyeri
-            sedang-berat
-          </td>
-        </tr>
-      </table>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>Grade</th>
+            <th>Temuan klinis</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>Tidak ada gejala</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>
+              Kulit pucat, bengkak ringan, dingin, dengan atau tanpa nyeri
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              Kulit pucat, bengkak lebih luas, dingin, dengan atau tanpa nyeri
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              Pucat dan tembus pandang, bengkak luas, dingin, nyeri
+              ringan-sedang, mungkin mati rasa
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              Kulit tegang, bocor, lebam, bengkak luas, gangguan sirkulasi,
+              nyeri sedang-berat
+            </td>
+          </tr>
+        </table>
+      </div>
       <p>
         Skala di atas adalah ringkasan; rujuk standar atau SPO institusi untuk
         definisi lengkap (Gorski et al., 2021; Maly et al., 2018).
@@ -992,9 +1018,7 @@
           complications in a Thai hospital.</i
         >
         Journal of Infusion Nursing, 47(2), 120–131.
-        <a
-          href="https://doi.org/10.1097/NAN.0000000000000538
-      "
+        <a href="https://doi.org/10.1097/NAN.0000000000000538"
           >https://doi.org/10.1097/NAN.0000000000000538
         </a>
       </p>

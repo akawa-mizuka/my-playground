@@ -12,7 +12,7 @@
       bgColor: "#f0f9ff",
       borderColor: "#7dd3fc",
       flowText: "Aliran Air: Masuk ke Dalam Sel (H2O In)",
-      title: "Larutan Hipotonis (e.g., Akua Destilata / NaCl 0.45%)",
+      title: "Larutan Hipotonis (e.g., NaCl 0.45%)",
       description:
         "Konsentrasi di luar sel lebih rendah dibanding di dalam sel. Air masuk ke dalam sel secara osmosis secara masif, membuat sel membengkak dan berisiko pecah / hemolisis.",
     },
@@ -20,7 +20,7 @@
       bgColor: "#bae6fd",
       borderColor: "#38bdf8",
       flowText: "Aliran Air: Keluar dari Sel (H2O Out)",
-      title: "Larutan Hipertonis (e.g., NaCl 3% / Dextrose 10%)",
+      title: "Larutan Hipertonis (e.g., NaCl 3%)",
       description:
         "Konsentrasi di luar sel lebih tinggi. Air ditarik keluar dari dalam sel menuju lingkungan luar, menyebabkan sel kehilangan volume, mengkerut, dan berbentuk keriput/spiky.",
     },
