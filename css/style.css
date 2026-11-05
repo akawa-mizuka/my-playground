@@ -543,6 +543,39 @@ h6 {
   margin-left: 20px;
   margin-bottom: 15px;
 }
+.site-footer {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto 0;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+}
+.footer-links a {
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+}
+.footer-copyright {
+  margin-bottom: 0.35rem;
+}
+.footer-note {
+  font-size: 0.9rem;
+  font-style: italic;
+}
 .formula-box {
   display: flex;
   flex-direction: column;
