@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -78,20 +78,27 @@
       <ul>
         <li>
           <b>Tanpa fase absorpsi</b> Zat masuk langsung ke darah sehingga
-          bioavailabilitas (F) dianggap 100%. Onset kerja paling cepat dibanding
-          rute lain.
+          <a href="https://id.wikipedia.org/wiki/Bioavailabilitas"
+            >bioavailabilitas</a
+          >
+          (F) dianggap 100%. Onset kerja paling cepat dibanding rute lain.
         </li>
         <li>
-          <b>Distribusi segera</b> Setelah masuk ke kompartemen sentral
-          (plasma), zat terdistribusi ke jaringan sesuai sifat fisikokimianya.
+          <b>Distribusi segera</b> Setelah masuk ke kompartemen sentral (<a
+            href="https://id.wikipedia.org/wiki/Plasma_darah"
+            >plasma</a
+          >), zat terdistribusi ke jaringan sesuai sifat fisikokimianya.
           Konsentrasi awal setelah bolus kira-kira C₀ = Dosis ÷ Vd (volume
           distribusi).
         </li>
         <li>
-          <b>Titrasinya yang presisi</b> Dosis dapat dititrasi presisi. Pada
-          infus kontinu, konsentrasi steady state ditentukan oleh laju infus
-          dibagi klirens (Css = R₀ ÷ CL), dan umumnya tercapai setelah sekitar
-          4–5 kali waktu paruh eliminasi.
+          <b>Titrasinya yang presisi</b> Dosis dapat di<a
+            href="https://id.wikipedia.org/wiki/Titrasi"
+            >titrasi</a
+          >
+          presisi. Pada infus kontinu, konsentrasi steady state ditentukan oleh
+          laju infus dibagi klirens (Css = R₀ ÷ CL), dan umumnya tercapai
+          setelah sekitar 4–5 kali waktu paruh eliminasi.
         </li>
         <li>
           <b>Tidak dapat ditarik kembali</b> Begitu masuk sirkulasi, obat atau
@@ -108,9 +115,12 @@
       <h2>Dinamika Tonisitas Cairan dan Fisiologi Seluler</h2>
       <h3>Osmolaritas, osmolalitas, dan tonisitas</h3>
       <p>
-        Osmosis adalah perpindahan air melewati membran semipermeabel dari area
-        dengan konsentrasi zat terlarut rendah ke area yang lebih tinggi. Dua
-        istilah sering tertukar:
+        Osmosis adalah perpindahan air melewati
+        <a href="https://id.wikipedia.org/wiki/Membran_semipermeabel"
+          >membran semipermeabel</a
+        >
+        dari area dengan konsentrasi zat terlarut rendah ke area yang lebih
+        tinggi. Dua istilah sering tertukar:
 
         <b>osmolalitas</b>
         adalah jumlah partikel terlarut per kilogram pelarut, sedangkan
@@ -223,70 +233,68 @@
           volume intravaskular meningkat sementara.
         </li>
       </ul>
-    </section>
 
-    <section
-      class="osmosis-simulator"
-      id="osmosis-simulator"
-      aria-labelledby="osmosis-title"
-    >
-      <div class="osmosis-card">
-        <header class="osmosis-header">
-          <h3 id="osmosis-title">Simulasi Osmosis Sel Darah Merah</h3>
-          <p>
-            Pilih konsentrasi cairan infus/larutan untuk melihat efek osmotik
-            pada eritrosit.
-          </p>
-        </header>
-        <div
-          class="osmosis-controls"
-          role="group"
-          aria-label="Pilih jenis larutan"
-        >
-          <button
-            class="osmosis-button active"
-            type="button"
-            data-solution="isotonic"
-            aria-pressed="true"
+      <section
+        class="osmosis-simulator"
+        id="osmosis-simulator"
+        aria-labelledby="osmosis-title"
+      >
+        <div class="osmosis-card">
+          <header class="osmosis-header">
+            <h3 id="osmosis-title">Simulasi Osmosis Sel Darah Merah</h3>
+            <p>
+              Pilih konsentrasi cairan infus/larutan untuk melihat efek osmotik
+              pada eritrosit.
+            </p>
+          </header>
+          <div
+            class="osmosis-controls"
+            role="group"
+            aria-label="Pilih jenis larutan"
           >
-            Isotonik (0.9% NaCl)
-          </button>
-          <button
-            class="osmosis-button"
-            type="button"
-            data-solution="hypotonic"
-            aria-pressed="false"
-          >
-            Hipotonik (&lt;0.9% NaCl)
-          </button>
-          <button
-            class="osmosis-button"
-            type="button"
-            data-solution="hypertonic"
-            aria-pressed="false"
-          >
-            Hipertonik (&gt;0.9% NaCl)
-          </button>
-        </div>
-        <div class="osmosis-environment" id="osmosis-environment">
-          <div class="osmosis-cell isotonic" id="osmosis-cell"></div>
-          <div class="osmosis-water-flow" id="osmosis-water-flow">
-            Aliran Air: Seimbang (In = Out)
+            <button
+              class="osmosis-button active"
+              type="button"
+              data-solution="isotonic"
+              aria-pressed="true"
+            >
+              Isotonik (0.9% NaCl)
+            </button>
+            <button
+              class="osmosis-button"
+              type="button"
+              data-solution="hypotonic"
+              aria-pressed="false"
+            >
+              Hipotonik (&lt;0.9% NaCl)
+            </button>
+            <button
+              class="osmosis-button"
+              type="button"
+              data-solution="hypertonic"
+              aria-pressed="false"
+            >
+              Hipertonik (&gt;0.9% NaCl)
+            </button>
+          </div>
+          <div class="osmosis-environment" id="osmosis-environment">
+            <div class="osmosis-cell isotonic" id="osmosis-cell"></div>
+            <div class="osmosis-water-flow" id="osmosis-water-flow">
+              Aliran Air: Seimbang (In = Out)
+            </div>
+          </div>
+          <div class="osmosis-info">
+            <h4 id="osmosis-info-title">Larutan Isotonis</h4>
+            <p id="osmosis-info-desc">
+              Konsentrasi zat terlarut di luar sel sama dengan di dalam sel.
+              Aliran air masuk dan keluar sel berada dalam keseimbangan. Bentuk
+              bikonkaf sel darah merah tetap normal dan optimal untuk mengangkut
+              oksigen.
+            </p>
           </div>
         </div>
-        <div class="osmosis-info">
-          <h4 id="osmosis-info-title">Larutan Isotonis</h4>
-          <p id="osmosis-info-desc">
-            Konsentrasi zat terlarut di luar sel sama dengan di dalam sel.
-            Aliran air masuk dan keluar sel berada dalam keseimbangan. Bentuk
-            bikonkaf sel darah merah tetap normal dan optimal untuk mengangkut
-            oksigen.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="blog-content">
       <h3>Bukti klinis: NS atau kristaloid seimbang?</h3>
       <p>
         Dua uji klinis besar dari pusat yang sama membandingkan salin dengan
@@ -392,72 +400,72 @@
         Untuk anak, pasien kritis, dan obat berisiko tinggi, gunakan pompa infus
         bila tersedia.
       </p>
-    </section>
 
-    <section class="calculator-section" aria-labelledby="calculator-title">
-      <div class="calculator-card">
-        <div class="calculator-layout">
-          <h3 id="calculator-title" class="kalkulator-header">
-            Kalkulator Tetes Infus (TPM)
-          </h3>
-          <!-- KOLOM KIRI: FORM INPUT -->
-          <div class="calculator-form">
-            <div class="form-group">
-              <label for="volume">Volume Cairan (mL):</label>
-              <input
-                type="number"
-                id="volume"
-                placeholder="Contoh: 500"
-                value="500"
-              />
+      <section class="calculator-section" aria-labelledby="calculator-title">
+        <div class="calculator-card">
+          <div class="calculator-layout">
+            <h3 id="calculator-title" class="kalkulator-header">
+              Kalkulator Tetes Infus (TPM)
+            </h3>
+            <!-- KOLOM KIRI: FORM INPUT -->
+            <div class="calculator-form">
+              <div class="form-group">
+                <label for="volume">Volume Cairan (mL):</label>
+                <input
+                  type="number"
+                  id="volume"
+                  placeholder="Contoh: 500"
+                  value="500"
+                />
+              </div>
+              <div class="form-group">
+                <label for="waktu">Lama Pemberian (Jam):</label>
+                <input
+                  type="number"
+                  id="waktu"
+                  placeholder="Contoh: 8"
+                  value="8"
+                />
+              </div>
+              <div class="form-group">
+                <label for="faktor">Jenis / Faktor Tetes:</label>
+                <select id="faktor">
+                  <option value="20">Makro (Dewasa) - 20 tetes/mL</option>
+                  <option value="15">Makro (Dewasa) - 15 tetes/mL</option>
+                  <option value="60">
+                    Mikro (Anak/Pediatrik) - 60 tetes/mL
+                  </option>
+                </select>
+              </div>
+              <button type="button" onclick="hitungTPM()">
+                Hitung &amp; Simulasi
+              </button>
+              <!-- HASIL PERHITUNGAN -->
+              <div class="result-box">
+                <h4>Kecepatan Tetesan:</h4>
+                <div class="result-value" id="res-tpm">0 TPM</div>
+                <small id="res-detik">Silakan tekan tombol hitung.</small>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="waktu">Lama Pemberian (Jam):</label>
-              <input
-                type="number"
-                id="waktu"
-                placeholder="Contoh: 8"
-                value="8"
-              />
-            </div>
-            <div class="form-group">
-              <label for="faktor">Jenis / Faktor Tetes:</label>
-              <select id="faktor">
-                <option value="20">Makro (Dewasa) - 20 tetes/mL</option>
-                <option value="15">Makro (Dewasa) - 15 tetes/mL</option>
-                <option value="60">Mikro (Anak/Pediatrik) - 60 tetes/mL</option>
-              </select>
-            </div>
-            <button type="button" onclick="hitungTPM()">
-              Hitung &amp; Simulasi
-            </button>
-            <!-- HASIL PERHITUNGAN -->
-            <div class="result-box">
-              <h4>Kecepatan Tetesan:</h4>
-              <div class="result-value" id="res-tpm">0 TPM</div>
-              <small id="res-detik">Silakan tekan tombol hitung.</small>
-            </div>
-          </div>
-          <!-- KOLOM KANAN: ANIMASI VISUALISASI -->
-          <div class="visualizer">
-            <div class="drip-chamber">
-              <div class="nozzle"></div>
+            <!-- KOLOM KANAN: ANIMASI VISUALISASI -->
+            <div class="visualizer">
+              <div class="drip-chamber">
+                <div class="nozzle"></div>
 
-              <!-- Icon Air Tetesan (SVG) -->
-              <svg id="drop" class="water-drop" viewBox="0 0 24 24">
-                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-              </svg>
-              <div class="liquid-pool"></div>
-            </div>
-            <div class="visual-status" id="visual-status">
-              Visualisasi tetesan siap
+                <!-- Icon Air Tetesan (SVG) -->
+                <svg id="drop" class="water-drop" viewBox="0 0 24 24">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                </svg>
+                <div class="liquid-pool"></div>
+              </div>
+              <div class="visual-status" id="visual-status">
+                Visualisasi tetesan siap
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="blog-content">
       <h3>SPO pemasangan infus perifer</h3>
       <p>
         Langkah di bawah adalah ringkasan umum prosedur pemasangan kateter IV
@@ -662,102 +670,102 @@
           lebih lambat.
         </li>
       </ul>
-    </section>
 
-    <section
-      class="gauge-guide"
-      id="gauge-guide"
-      aria-labelledby="gauge-guide-title"
-    >
-      <div class="gauge-card">
-        <header class="gauge-header">
-          <h3 id="gauge-guide-title">Panduan Ukuran &amp; Warna Jarum Infus</h3>
-          <p>
-            Pilih ukuran Gauge (G) untuk melihat standar warna, debit aliran,
-            dan indikasi medisnya.
-          </p>
-        </header>
-        <div
-          class="gauge-selector"
-          id="gauge-button-container"
-          role="group"
-          aria-label="Pilih ukuran gauge"
-        ></div>
-        <div class="gauge-display-grid">
-          <div class="gauge-visual-box">
-            <svg
-              class="gauge-needle-svg"
-              viewBox="0 0 200 80"
-              role="img"
-              aria-label="Ilustrasi warna hub kanula infus"
-            >
-              <rect x="140" y="38" width="50" height="4" fill="#94a3b8" />
-              <polygon points="190,38 200,40 190,42" fill="#64748b" />
-              <rect
-                id="gauge-hub-body"
-                x="60"
-                y="28"
-                width="80"
-                height="24"
-                rx="4"
-                fill="#ec4899"
-              />
-              <rect
-                id="gauge-hub-wing"
-                x="80"
-                y="15"
-                width="40"
-                height="50"
-                rx="3"
-                fill="#ec4899"
-                opacity="0.8"
-              />
-              <rect
-                x="20"
-                y="32"
-                width="40"
-                height="16"
-                rx="2"
-                fill="#cbd5e1"
-              />
-            </svg>
-            <div class="gauge-flow-meter">
-              <div class="gauge-flow-label">
-                <span>Kecepatan Aliran (Flow Rate)</span>
-                <span id="gauge-flow-text">0 mL/min</span>
-              </div>
-              <div class="gauge-progress-bg">
-                <div class="gauge-progress-fill" id="gauge-flow-bar"></div>
+      <section
+        class="gauge-guide"
+        id="gauge-guide"
+        aria-labelledby="gauge-guide-title"
+      >
+        <div class="gauge-card">
+          <header class="gauge-header">
+            <h3 id="gauge-guide-title">
+              Panduan Ukuran &amp; Warna Jarum Infus
+            </h3>
+            <p>
+              Pilih ukuran Gauge (G) untuk melihat standar warna, debit aliran,
+              dan indikasi medisnya.
+            </p>
+          </header>
+          <div
+            class="gauge-selector"
+            id="gauge-button-container"
+            role="group"
+            aria-label="Pilih ukuran gauge"
+          ></div>
+          <div class="gauge-display-grid">
+            <div class="gauge-visual-box">
+              <svg
+                class="gauge-needle-svg"
+                viewBox="0 0 200 80"
+                role="img"
+                aria-label="Ilustrasi warna hub kanula infus"
+              >
+                <rect x="140" y="38" width="50" height="4" fill="#94a3b8" />
+                <polygon points="190,38 200,40 190,42" fill="#64748b" />
+                <rect
+                  id="gauge-hub-body"
+                  x="60"
+                  y="28"
+                  width="80"
+                  height="24"
+                  rx="4"
+                  fill="#ec4899"
+                />
+                <rect
+                  id="gauge-hub-wing"
+                  x="80"
+                  y="15"
+                  width="40"
+                  height="50"
+                  rx="3"
+                  fill="#ec4899"
+                  opacity="0.8"
+                />
+                <rect
+                  x="20"
+                  y="32"
+                  width="40"
+                  height="16"
+                  rx="2"
+                  fill="#cbd5e1"
+                />
+              </svg>
+              <div class="gauge-flow-meter">
+                <div class="gauge-flow-label">
+                  <span>Kecepatan Aliran (Flow Rate)</span>
+                  <span id="gauge-flow-text">0 mL/min</span>
+                </div>
+                <div class="gauge-progress-bg">
+                  <div class="gauge-progress-fill" id="gauge-flow-bar"></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="gauge-details-box">
-            <span class="gauge-badge" id="gauge-badge">Warna Standar</span>
-            <h4 id="gauge-title">--</h4>
-            <ul class="gauge-spec-list">
-              <li class="gauge-spec-item">
-                <span>Diameter Luar:</span>
-                <span id="gauge-spec-diameter">-</span>
-              </li>
-              <li class="gauge-spec-item">
-                <span>Panjang Jarum:</span>
-                <span id="gauge-spec-length">-</span>
-              </li>
-              <li class="gauge-spec-item">
-                <span>Target Pasien:</span>
-                <span id="gauge-spec-target">-</span>
-              </li>
-            </ul>
-            <div class="gauge-indication-box">
-              <h4>Indikasi Penggunaan:</h4>
-              <p id="gauge-spec-indications">-</p>
+            <div class="gauge-details-box">
+              <span class="gauge-badge" id="gauge-badge">Warna Standar</span>
+              <h4 id="gauge-title">--</h4>
+              <ul class="gauge-spec-list">
+                <li class="gauge-spec-item">
+                  <span>Diameter Luar:</span>
+                  <span id="gauge-spec-diameter">-</span>
+                </li>
+                <li class="gauge-spec-item">
+                  <span>Panjang Jarum:</span>
+                  <span id="gauge-spec-length">-</span>
+                </li>
+                <li class="gauge-spec-item">
+                  <span>Target Pasien:</span>
+                  <span id="gauge-spec-target">-</span>
+                </li>
+              </ul>
+              <div class="gauge-indication-box">
+                <h4>Indikasi Penggunaan:</h4>
+                <p id="gauge-spec-indications">-</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="blog-content">
       <h2>Komplikasi Vaskular: Dari Patofisiologi hingga Pencegahan</h2>
       <h3>Seberapa sering komplikasi terjadi?</h3>
       <p>
