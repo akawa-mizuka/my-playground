@@ -550,7 +550,10 @@ button:hover {
   font-size: 0.9rem;
   text-align: center;
 }
-
+.cite {
+  color: var(--text) !important;
+  text-decoration: none;
+}
 h1,
 h2,
 h3,
