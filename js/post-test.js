@@ -168,19 +168,58 @@ pertanyaanEvaluasi.forEach((pertanyaan, index) => {
   const skala = document.createElement("div");
   skala.className = "post-test__scale";
 
+  const poin = document.createElement("span");
+  poin.className = "post-test__rating-score";
+  poin.setAttribute("aria-live", "polite");
+  poin.textContent = "Belum dinilai";
+
   for (let nilai = 1; nilai <= 5; nilai++) {
     const label = document.createElement("label");
     const input = document.createElement("input");
     input.type = "radio";
     input.name = `post-test-feedback-${index}`;
     input.value = String(nilai);
+    input.setAttribute("aria-label", `${nilai} dari 5 bintang`);
     input.required = true;
 
-    label.append(input, String(nilai));
+    const bintang = document.createElement("span");
+    bintang.className = "post-test__star";
+    bintang.setAttribute("aria-hidden", "true");
+    bintang.textContent = "☆";
+
+    label.append(input, bintang);
     skala.append(label);
+
+    input.addEventListener("change", () => {
+      const semuaBintang = skala.querySelectorAll(".post-test__star");
+      semuaBintang.forEach((star, starIndex) => {
+        const aktif = starIndex < nilai;
+        star.textContent = aktif ? "★" : "☆";
+        star.parentElement.classList.toggle("is-active", aktif);
+      });
+      poin.textContent = `${nilai}/5`;
+    });
+
+    label.addEventListener("mouseenter", () => {
+      skala.querySelectorAll(".post-test__star").forEach((star, starIndex) => {
+        const aktif = starIndex < nilai;
+        star.textContent = aktif ? "★" : "☆";
+        star.parentElement.classList.toggle("is-active", aktif);
+      });
+    });
   }
 
-  fieldset.append(skala);
+  skala.addEventListener("mouseleave", () => {
+    const pilihan = skala.querySelector("input:checked");
+    const nilaiTerpilih = pilihan ? Number(pilihan.value) : 0;
+    skala.querySelectorAll(".post-test__star").forEach((star, starIndex) => {
+      const aktif = starIndex < nilaiTerpilih;
+      star.textContent = aktif ? "★" : "☆";
+      star.parentElement.classList.toggle("is-active", aktif);
+    });
+  });
+
+  fieldset.append(skala, poin);
   daftarEvaluasi.append(fieldset);
 });
 
