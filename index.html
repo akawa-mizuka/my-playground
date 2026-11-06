@@ -339,39 +339,15 @@
         cabang-cabangnya) umumnya lebih mudah diakses.
       </p>
       <figure class="anatomy-image">
-        <button
-          class="anatomy-image-trigger"
-          id="arm-vein-image-trigger"
-          type="button"
-          aria-label="Perbesar gambar vena lengan"
-          aria-haspopup="dialog"
-          aria-controls="arm-vein-image-dialog"
-        >
-          <img
-            src="./img/vena lengan.jfif"
-            alt="Ilustrasi vena pada lengan untuk pertimbangan akses intravena perifer"
-          />
-        </button>
-        <figcaption>Klik gambar untuk memperbesar.</figcaption>
-      </figure>
-      <dialog
-        class="image-zoom-dialog"
-        id="arm-vein-image-dialog"
-        aria-labelledby="arm-vein-dialog-title"
-      >
-        <div class="image-zoom-header">
-          <h4 id="arm-vein-dialog-title">Anatomi vena lengan</h4>
-          <form method="dialog">
-            <button class="image-zoom-close" type="submit" aria-label="Tutup">
-              Tutup
-            </button>
-          </form>
-        </div>
         <img
-          src="./img/vena lengan.jfif"
-          alt="Ilustrasi vena pada lengan untuk pertimbangan akses intravena perifer"
+          src="./img/venous-system-en.svg"
+          alt="Ilustrasi sistem vena pada tubuh manusia."
         />
-      </dialog>
+        <figcaption>
+          Ilustrasi sistem vena; tidak semua vena pada gambar sesuai untuk
+          pemasangan kanula perifer.
+        </figcaption>
+      </figure>
       <ul>
         <li>
           Pilih vena yang <b>lurus, lunak, dan terisi baik;</b> hindari vena
@@ -1022,6 +998,85 @@
       </ol>
     </section>
 
+    <section class="post-test" aria-labelledby="post-test-title">
+      <header class="post-test__header">
+        <h2 id="post-test-title">Post-Test Terapi Intravena (IV)</h2>
+        <p>
+          Jawablah 10 pertanyaan berikut berdasarkan materi Panduan Terapi
+          Intravena (IV).
+        </p>
+        <p>Jumlah soal: 10 | Nilai maksimal: 100</p>
+      </header>
+
+      <form id="post-test-form">
+        <div class="post-test__card post-test__identity">
+          <h3>Identitas Peserta</h3>
+          <label for="post-test-name">
+            Nama Lengkap
+            <input type="text" id="post-test-name" required />
+          </label>
+          <label for="post-test-nim">
+            NIM
+            <input type="text" id="post-test-nim" required />
+          </label>
+          <label for="post-test-university">
+            Universitas
+            <input type="text" id="post-test-university" required />
+          </label>
+        </div>
+
+        <div id="post-test-questions"></div>
+
+        <div class="post-test__card">
+          <h3>Evaluasi Blog</h3>
+          <p class="post-test__note">
+            Berikan penilaian pada skala 1–5 untuk setiap pertanyaan.
+          </p>
+          <div id="post-test-feedback"></div>
+        </div>
+
+        <div class="post-test__card">
+          <p class="post-test__note">
+            Pastikan identitas, seluruh soal, dan evaluasi sudah dilengkapi
+            sebelum mengirim.
+          </p>
+          <button type="submit">Kirim Jawaban</button>
+          <div id="post-test-result" role="status" aria-live="polite"></div>
+        </div>
+      </form>
+
+      <iframe
+        name="post-test-google-frame"
+        title="Pengiriman jawaban post-test"
+        hidden
+      ></iframe>
+      <form
+        id="post-test-google-form"
+        method="POST"
+        target="post-test-google-frame"
+        hidden
+      >
+        <input type="hidden" id="post-test-google-name" />
+        <input type="hidden" id="post-test-google-nim" />
+        <input type="hidden" id="post-test-google-university" />
+        <input type="hidden" id="post-test-google-1" />
+        <input type="hidden" id="post-test-google-2" />
+        <input type="hidden" id="post-test-google-3" />
+        <input type="hidden" id="post-test-google-4" />
+        <input type="hidden" id="post-test-google-5" />
+        <input type="hidden" id="post-test-google-6" />
+        <input type="hidden" id="post-test-google-7" />
+        <input type="hidden" id="post-test-google-8" />
+        <input type="hidden" id="post-test-google-9" />
+        <input type="hidden" id="post-test-google-10" />
+        <input type="hidden" id="post-test-google-feedback-1" />
+        <input type="hidden" id="post-test-google-feedback-2" />
+        <input type="hidden" id="post-test-google-feedback-3" />
+        <input type="hidden" id="post-test-google-feedback-4" />
+        <input type="hidden" id="post-test-google-feedback-5" />
+      </form>
+    </section>
+
     <section class="blog-references">
       <h2>Daftar Pustaka</h2>
       <p>
@@ -1236,23 +1291,6 @@
     <script src="./js/iv.js"></script>
     <script src="./js/osmosis-darah.js"></script>
     <script src="./js/gauge-guide.js"></script>
-    <script>
-      const armVeinImageTrigger = document.querySelector(
-        "#arm-vein-image-trigger",
-      );
-      const armVeinImageDialog = document.querySelector(
-        "#arm-vein-image-dialog",
-      );
-
-      armVeinImageTrigger.addEventListener("click", () => {
-        armVeinImageDialog.showModal();
-      });
-
-      armVeinImageDialog.addEventListener("click", (event) => {
-        if (event.target === armVeinImageDialog) {
-          armVeinImageDialog.close();
-        }
-      });
-    </script>
+    <script src="./js/post-test.js"></script>
   </body>
 </html>

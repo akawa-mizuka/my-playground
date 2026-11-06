@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post-Test Terapi Intravena</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f1f5f9;
+        color: #243247;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 35px auto;
+        padding: 20px;
+      }
+
+      .header {
+        background: #176b68;
+        color: white;
+        padding: 28px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+      }
+
+      .header h1 {
+        margin-top: 0;
+      }
+
+      .card {
+        background: white;
+        padding: 22px;
+        margin-bottom: 18px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px #0000000d;
+      }
+
+      label {
+        display: block;
+        margin: 8px 0;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        margin-top: 5px;
+      }
+
+      .question {
+        font-weight: bold;
+        margin-bottom: 12px;
+      }
+
+      .option {
+        display: block;
+        padding: 10px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin: 8px 0;
+        cursor: pointer;
+      }
+
+      .option:hover {
+        background: #ecfdf5;
+      }
+
+      button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 9px;
+        background: #176b68;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #10514f;
+      }
+
+      #hasil {
+        display: none;
+        background: #ecfdf5;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .catatan {
+        font-size: 13px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Post-Test Terapi Intravena (IV)</h1>
+        <p>
+          Jawablah 10 pertanyaan berikut berdasarkan materi Panduan Terapi
+          Intravena (IV).
+        </p>
+        <p>Jumlah soal: 10 | Nilai maksimal: 100</p>
+      </div>
+
+      <form id="quizForm">
+        <div class="card">
+          <h3>Identitas Peserta</h3>
+
+          <label>
+            Nama Lengkap
+            <input type="text" id="nama" required />
+          </label>
+
+          <label>
+            Kelas
+            <input type="text" id="kelas" required />
+          </label>
+        </div>
+
+        <div id="daftarSoal"></div>
+
+        <div class="card">
+          <p class="catatan">
+            Pastikan seluruh pertanyaan sudah dijawab sebelum mengirim.
+          </p>
+          <button type="submit">Kirim Jawaban</button>
+          <div id="hasil"></div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Form tersembunyi untuk mengirim jawaban ke Google Forms -->
+    <iframe name="googleFrame" id="googleFrame" style="display: none"></iframe>
+
+    <form
+      id="googleForm"
+      method="POST"
+      target="googleFrame"
+      style="display: none"
+    >
+      <input type="hidden" name="entry.NAMA" id="gNama" />
+      <input type="hidden" name="entry.KELAS" id="gKelas" />
+      <input type="hidden" name="entry.NILAI" id="gNilai" />
+
+      <input type="hidden" name="entry.SOAL1" id="g1" />
+      <input type="hidden" name="entry.SOAL2" id="g2" />
+      <input type="hidden" name="entry.SOAL3" id="g3" />
+      <input type="hidden" name="entry.SOAL4" id="g4" />
+      <input type="hidden" name="entry.SOAL5" id="g5" />
+      <input type="hidden" name="entry.SOAL6" id="g6" />
+      <input type="hidden" name="entry.SOAL7" id="g7" />
+      <input type="hidden" name="entry.SOAL8" id="g8" />
+      <input type="hidden" name="entry.SOAL9" id="g9" />
+      <input type="hidden" name="entry.SOAL10" id="g10" />
+    </form>
+
+    <script>
+      // ======================================
+      // 1. KONFIGURASI GOOGLE FORMS
+      // ======================================
+
+      // Ganti dengan URL Google Form Anda.
+      // URL harus berakhir dengan /formResponse
+
+      const GOOGLE_FORM_URL =
+        "https://docs.google.com/forms/d/e/FORM_ID_ANDA/formResponse";
+
+      // Ganti NAMA, KELAS, NILAI, SOAL1 sampai SOAL10
+      // dengan ID entry Google Forms yang sebenarnya.
+
+      const ENTRY = {
+        nama: "NAMA",
+        kelas: "KELAS",
+        nilai: "NILAI",
+        soal: [
+          "SOAL1",
+          "SOAL2",
+          "SOAL3",
+          "SOAL4",
+          "SOAL5",
+          "SOAL6",
+          "SOAL7",
+          "SOAL8",
+          "SOAL9",
+          "SOAL10",
+        ],
+      };
+
+      // ======================================
+      // 2. DAFTAR SOAL POST-TEST
+      // ======================================
+
+      const soal = [
+        {
+          t: "Apa keunggulan utama pemberian obat melalui intravena (IV)?",
+          o: [
+            "Obat diserap secara perlahan melalui kulit",
+            "Obat langsung masuk ke sirkulasi darah",
+            "Obat harus melewati proses pencernaan",
+            "Obat hanya bekerja pada permukaan kulit",
+          ],
+          k: 1,
+        },
+        {
+          t: "Cairan NaCl 0,9% termasuk jenis cairan apa?",
+          o: ["Hipotonik", "Hipertonik", "Isotonik", "Koloid"],
+          k: 2,
+        },
+        {
+          t: "Apa yang dimaksud dengan cairan hipotonik?",
+          o: [
+            "Cairan dengan konsentrasi zat terlarut lebih rendah daripada plasma",
+            "Cairan dengan konsentrasi zat terlarut lebih tinggi daripada plasma",
+            "Cairan yang memiliki konsentrasi sama dengan plasma",
+            "Cairan yang tidak mengandung air",
+          ],
+          k: 0,
+        },
+        {
+          t: "Manakah yang termasuk indikasi pemberian terapi intravena?",
+          o: [
+            "Pasien mampu memenuhi kebutuhan cairan secara oral",
+            "Pasien membutuhkan pemberian cairan atau obat secara langsung ke pembuluh darah",
+            "Pasien tidak membutuhkan terapi medis",
+            "Pasien hanya mengalami luka ringan pada kulit",
+          ],
+          k: 1,
+        },
+        {
+          t: "Apa pertimbangan utama dalam memilih vena perifer untuk pemasangan infus?",
+          o: [
+            "Memilih vena yang paling kecil",
+            "Memilih vena yang mudah dilihat tanpa pemeriksaan",
+            "Memilih vena yang sesuai kondisi pasien dan kebutuhan terapi",
+            "Selalu memilih vena pada area persendian",
+          ],
+          k: 2,
+        },
+        {
+          t: "Apa arti TPM dalam perhitungan tetesan infus?",
+          o: [
+            "Tetesan per menit",
+            "Tekanan pembuluh darah",
+            "Total pemberian medis",
+            "Terapi pasien maksimal",
+          ],
+          k: 0,
+        },
+        {
+          t: "Pada prosedur pemasangan infus, tindakan yang harus dilakukan sebelum menusukkan kateter adalah...",
+          o: [
+            "Menyentuh kembali area yang sudah didesinfeksi",
+            "Melakukan kebersihan tangan dan menyiapkan area secara aseptik",
+            "Membuka seluruh alat tanpa memperhatikan kebersihan",
+            "Langsung memasukkan kateter tanpa identifikasi pasien",
+          ],
+          k: 1,
+        },
+        {
+          t: "Apa arti ukuran kanula 18G dibandingkan 24G?",
+          o: [
+            "18G memiliki diameter lebih kecil",
+            "18G memiliki diameter lebih besar",
+            "Keduanya memiliki diameter sama",
+            "24G selalu memiliki aliran lebih cepat",
+          ],
+          k: 1,
+        },
+        {
+          t: "Kondisi kemerahan, nyeri, dan hangat di sepanjang vena akibat peradangan disebut...",
+          o: ["Infiltrasi", "Oklusi", "Flebitis", "Emboli"],
+          k: 2,
+        },
+        {
+          t: "Apa tindakan awal yang tepat jika dicurigai terjadi infiltrasi pada area infus perifer?",
+          o: [
+            "Mempercepat tetesan infus",
+            "Mengabaikan keluhan pasien",
+            "Menghentikan infus dan melakukan penilaian serta penanganan sesuai SOP",
+            "Menekan area infus dengan kuat",
+          ],
+          k: 2,
+        },
+      ];
+
+      // ======================================
+      // 3. TAMPILKAN SOAL
+      // ======================================
+
+      const daftar = document.getElementById("daftarSoal");
+
+      soal.forEach((s, i) => {
+        let html = `
+    <div class="card">
+      <div class="question">
+        ${i + 1}. ${s.t}
+      </div>
+  `;
+
+        s.o.forEach((pilihan, j) => {
+          html += `
+      <label class="option">
+        <input type="radio" name="soal${i}" value="${j}" required>
+        ${String.fromCharCode(65 + j)}. ${pilihan}
+      </label>
+    `;
+        });
+
+        html += "</div>";
+        daftar.innerHTML += html;
+      });
+
+      // ======================================
+      // 4. PROSES JAWABAN DAN NILAI
+      // ======================================
+
+      document
+        .getElementById("quizForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          if (!this.reportValidity()) return;
+
+          const nama = document.getElementById("nama").value.trim();
+          const kelas = document.getElementById("kelas").value.trim();
+
+          if (!nama || !kelas) {
+            alert("Nama dan kelas wajib diisi.");
+            return;
+          }
+
+          let benar = 0;
+          let jawaban = [];
+
+          soal.forEach((s, i) => {
+            const pilihan = document.querySelector(
+              `input[name="soal${i}"]:checked`,
+            );
+
+            const nilai = Number(pilihan.value);
+            jawaban.push(nilai);
+
+            if (nilai === s.k) benar++;
+          });
+
+          const nilaiAkhir = benar * 10;
+
+          // Tampilkan nilai di halaman
+          const hasil = document.getElementById("hasil");
+          hasil.style.display = "block";
+          hasil.innerHTML = `
+    <h2>Post-test selesai!</h2>
+    <h1>${nilaiAkhir}/100</h1>
+    <p>Jawaban benar: ${benar} dari 10 soal.</p>
+    <p>Terima kasih telah mengerjakan post-test.</p>
+  `;
+
+          // ==================================
+          // 5. KIRIM KE GOOGLE FORMS
+          // ==================================
+
+          const gForm = document.getElementById("googleForm");
+
+          gForm.action = GOOGLE_FORM_URL;
+
+          document.getElementById("gNama").name = "entry." + ENTRY.nama;
+          document.getElementById("gNama").value = nama;
+
+          document.getElementById("gKelas").name = "entry." + ENTRY.kelas;
+          document.getElementById("gKelas").value = kelas;
+
+          document.getElementById("gNilai").name = "entry." + ENTRY.nilai;
+          document.getElementById("gNilai").value = nilaiAkhir;
+
+          jawaban.forEach((j, i) => {
+            const input = document.getElementById("g" + (i + 1));
+            input.name = "entry." + ENTRY.soal[i];
+            input.value = String.fromCharCode(65 + j) + ". " + soal[i].o[j];
+          });
+
+          // Kirim data ke Google Forms
+          gForm.submit();
+
+          // Cegah pengiriman berulang
+          const tombol = document.querySelector(
+            '#quizForm button[type="submit"]',
+          );
+          tombol.disabled = true;
+          tombol.textContent = "Jawaban sudah dikirim";
+          tombol.style.background = "#64748b";
+
+          hasil.scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
+  </body>
+</html>
